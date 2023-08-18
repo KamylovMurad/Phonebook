@@ -159,5 +159,4 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
 
-mysite/uploads
-mysite/static
+phonebook.txt
