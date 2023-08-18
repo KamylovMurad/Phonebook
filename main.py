@@ -4,7 +4,7 @@ from typing import List
 PHONEBOOK = "phonebook.txt"
 
 
-def display_contacts(contacts: List[str], page: int, per_page: int):
+def display(contacts: List[str], page: int, per_page: int):
     """
     Выводит на экран страницу записей из справочника.
 
@@ -26,7 +26,6 @@ def display_contacts(contacts: List[str], page: int, per_page: int):
         print(f"Страница {page}/{(len(contacts) + per_page - 1) // per_page}")
     except ZeroDivisionError:
         print("  Совпадения отсутствуют")
-
 
 
 def add_contact() -> None:
@@ -62,7 +61,7 @@ def edit_contact() -> None:
         None
     """
     contacts = load_contacts()
-    display_contacts(contacts, 1, len(contacts))
+    display(contacts, 1, len(contacts))
 
     index = int(input("Введите номер контакта для редактирования: ")) - 1
     if 0 <= index < len(contacts):
@@ -88,7 +87,7 @@ def search_contacts() -> None:
     matching_contacts = [
         contact for contact in contacts if query in contact.lower()
     ]
-    display_contacts(matching_contacts, 1, len(matching_contacts))
+    display(matching_contacts, 1, len(matching_contacts))
 
 
 def load_contacts() -> List[str]:
@@ -138,7 +137,7 @@ def main():
             per_page = 5
             page = 1
             while True:
-                display_contacts(contacts, page, per_page)
+                display(contacts, page, per_page)
                 action = input(
                   "n - Следующая страница, "
                   "p - Предыдущая страница, "
